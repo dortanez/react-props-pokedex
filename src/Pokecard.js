@@ -5,8 +5,9 @@ const Pokecard = (props) => {
     return (
         <div>
             <h4>{props.name}</h4>
-            <img src={pic} alt='' ></img>
-            <p>{props.type}</p>
+            <img src={pic} alt=''></img>
+            <p>Type: {props.type}</p>
+            <p>EXP: {props.base_experience}</p>
         </div>
     )
 }
