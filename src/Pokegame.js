@@ -12,11 +12,18 @@ const Pokegame = (props) => {
         hand2.push(element[0])
     }
 
+    const hand1Exp = hand1.reduce((acc,n) => {
+        return acc + n.base_experience;
+    },0)
+    const hand2Exp = hand2.reduce((acc,n) => {
+        return acc + n.base_experience;
+    },0)
+
     return (
         <div className='Pokegame'>
             <h1 className='Pokegame-header'>Pokedex</h1>
-            <Pokedex player={1} cards={hand1}/>
-            <Pokedex player={2} cards={hand2}/>
+            <Pokedex player={1} cards={hand1} isWinner={hand1Exp > hand2Exp} exp={hand1Exp}/>
+            <Pokedex player={2} cards={hand2} isWinner={hand1Exp < hand2Exp} exp={hand2Exp}/>
         </div>
     )
 }

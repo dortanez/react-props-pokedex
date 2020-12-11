@@ -1,0 +1,9 @@
+.Pokedex {
+    border: 1px solid black;
+    margin: 5% 1%;
+
+}
+
+.Pokedex-isWinner {
+    color: red;
+}

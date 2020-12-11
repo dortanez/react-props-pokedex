@@ -3,13 +3,14 @@ import Pokecard from './Pokecard';
 import './Pokedex.css'
 
 const Pokedex = (props) => {
+    let isWinner = null;
+    if(props.isWinner) {
+        isWinner = <p>THIS HAND WINS!</p>
+    }
     return (
         <div className='Pokedex'>
             <h4>Player {props.player}</h4>
-            <p>Total EXP: {props.cards.reduce((acc, n) => {
-                return acc + n.base_experience
-            },0)}
-            </p>
+            <p>Total EXP: {props.exp}</p>
             <div className='Pokedex-cards'>
                 {props.cards.map((c) => {
                     return <Pokecard 
@@ -21,7 +22,7 @@ const Pokedex = (props) => {
                     />
                 })}
             </div>
-            
+            <h4 className='Pokedex-isWinner'>{isWinner}</h4>
         </div>
         
     )
