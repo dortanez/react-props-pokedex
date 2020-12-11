@@ -1,14 +1,23 @@
 import React from 'react';
-import Pokedex from './Pokecard';
+import Pokedex from './Pokedex';
+import './Pokegame.css';
 
-const Pokegame = () => {
-    const hand1 = [];
+const Pokegame = (props) => {
+    const hand1 = [...props.pokemon];
     const hand2 = [];
+
+    while(hand1.length > hand2.length) {
+        const randomNum = Math.floor(Math.random() * hand1.length)
+        const element = hand1.splice(randomNum, 1);
+        hand2.push(element[0])
+    }
+
     return (
-        <>
-            <Pokedex cards={hand1}/>
-            <Pokedex cards={hand2}/>
-        </>
+        <div className='Pokegame'>
+            <h1 className='Pokegame-header'>Pokedex</h1>
+            <Pokedex player={1} cards={hand1}/>
+            <Pokedex player={2} cards={hand2}/>
+        </div>
     )
 }
 
